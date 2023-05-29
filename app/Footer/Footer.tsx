@@ -79,7 +79,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className='p-5 text-white bg-gray-800 md:p-8'>
+    <footer className='p-5 text-white bg-[#333] md:p-8'>
       <div>
         <div className='grid grid-cols-1 lg:grid-cols-2'>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
