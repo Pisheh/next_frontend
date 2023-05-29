@@ -3,7 +3,7 @@ import localFont from 'next/font/local'
 import { Providers } from './providers'
 import Navbar from './navbar/Navbar'
 import Modal from './components/LoginModal'
-import Footer from './footer/Footer'
+import Footer from './Footer/Footer'
 
 const iranYekan = localFont({
   src: [
