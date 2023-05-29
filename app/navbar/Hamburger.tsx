@@ -1,9 +1,16 @@
 import { FiMenu } from 'react-icons/fi'
 import Button from '../components/Button'
+import { MouseEventHandler } from 'react'
 
-function Hamburger({ className }: { className?: string }) {
+function Hamburger({
+  className,
+  onClick
+}: {
+  className?: string
+  onClick: MouseEventHandler<HTMLButtonElement>
+}) {
   return (
-    <Button className={className}>
+    <Button className={className} onClick={onClick}>
       <FiMenu />
     </Button>
   )

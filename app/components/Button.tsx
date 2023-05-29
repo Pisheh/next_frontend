@@ -1,4 +1,5 @@
 import { Button as Btn, ResponsiveValue, SystemStyleObject } from '@chakra-ui/react'
+import { MouseEventHandler } from 'react'
 
 export default function Button({
   children,
@@ -12,7 +13,8 @@ export default function Button({
   isLoading,
   rightIcon,
   size,
-  className
+  className,
+  onClick
 }: {
   children: React.ReactNode
   as?: string
@@ -26,6 +28,7 @@ export default function Button({
   rightIcon?: React.ReactElement<any, string | React.JSXElementConstructor<any>>
   size?: 'lg' | 'md' | 'sm' | 'xs'
   className?: string
+  onClick?: MouseEventHandler<HTMLButtonElement>
 }) {
   return (
     <Btn
@@ -39,6 +42,7 @@ export default function Button({
       rightIcon={rightIcon}
       size={size}
       className={className}
+      onClick={onClick}
     >
       {children}
     </Btn>
