@@ -5,7 +5,7 @@ import pisheh from '../../public/Logo.svg'
 function Logo() {
   return (
     <Link href='/'>
-      <Image src={pisheh} alt='pisheh' width={100} />
+      <Image src={pisheh} alt='pisheh' className='w-[85px] lg:w-[100px]' />
     </Link>
   )
 }
