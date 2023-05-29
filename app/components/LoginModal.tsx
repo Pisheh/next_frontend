@@ -6,12 +6,15 @@ import {
   ModalCloseButton,
   ModalContent,
   ModalHeader,
-  ModalOverlay
+  ModalOverlay,
+  useDisclosure
 } from '@chakra-ui/react'
 
 function LoginModal() {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
-    <Modal>
+    <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>ثبت نام یا ورود به حساب کاربری</ModalHeader>
