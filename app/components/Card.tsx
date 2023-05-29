@@ -11,7 +11,7 @@ const Card = ({
 }) => {
   return (
     <div
-      className={`bg-white w-[${width}px] h-[${height}px] rounded-[40px] shadow-xl ${className}`}
+      className={`bg-white w-[${width}px] h-[${height}px] rounded-[40px] shadow-xl ${className} `}
     >
       {children}
     </div>
