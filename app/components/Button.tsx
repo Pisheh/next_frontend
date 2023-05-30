@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   const classes = classNames(
     'px-6 py-2 border-[1.5px] rounded-lg hover:shadow-lg transition',
     {
-      'border-primary bg-primary text-white hover:bg-hover': primary,
+      'border-primary bg-primary text-white hover:bg-hover hover:border-hover': primary,
       'bg-transparent text-primary border-primary': outline
     },
     className
