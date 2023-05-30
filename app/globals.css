@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* button.primary,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-  background-color: #2b5adc;
-} */
-
 .hero {
   height: calc(100vh - 84.75px);
 }

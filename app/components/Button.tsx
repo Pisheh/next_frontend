@@ -1,50 +1,38 @@
-import { Button as Btn, ResponsiveValue, SystemStyleObject } from '@chakra-ui/react'
-import { MouseEventHandler } from 'react'
+import classNames from 'classnames'
 
-export default function Button({
+interface ButtonProps {
+  children: React.ReactNode
+  primary?: boolean
+  secondary?: boolean
+  outline?: boolean
+  type?: 'button' | 'submit'
+  className?: string
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
+}
+
+const Button: React.FC<ButtonProps> = ({
   children,
-  as,
-  bg,
-  color,
-  colorScheme,
-  hover,
-  variant,
-  iconSpacing,
-  isLoading,
-  rightIcon,
-  size,
+  primary,
+  secondary,
+  outline,
+  type,
   className,
   onClick
-}: {
-  children: React.ReactNode
-  as?: string
-  bg?: string
-  color?: string
-  colorScheme?: string
-  hover?: SystemStyleObject
-  variant?: 'ghost' | 'outline' | 'solid' | 'link' | 'unstyled'
-  iconSpacing?: ResponsiveValue<string | number | (string & {})>
-  isLoading?: boolean
-  rightIcon?: React.ReactElement<any, string | React.JSXElementConstructor<any>>
-  size?: 'lg' | 'md' | 'sm' | 'xs'
-  className?: string
-  onClick?: MouseEventHandler<HTMLButtonElement>
-}) {
+}) => {
+  const classes = classNames(
+    'px-6 py-2 border-[1.5px] rounded-lg hover:shadow-md transition',
+    {
+      'border-[#2b5adc] bg-[#2b5adc] text-white': primary,
+      'bg-[#fff]': outline,
+      'text-[#2b5adc]': outline && primary
+    },
+    className
+  )
+
   return (
-    <Btn
-      bg={bg}
-      color={color}
-      _hover={hover}
-      colorScheme={colorScheme}
-      variant={variant}
-      iconSpacing={iconSpacing}
-      isLoading={isLoading}
-      rightIcon={rightIcon}
-      size={size}
-      className={className}
-      onClick={onClick}
-    >
+    <button className={classes} type={type} onClick={onClick}>
       {children}
-    </Btn>
+    </button>
   )
 }
+export default Button

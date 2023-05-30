@@ -16,22 +16,16 @@ function Header() {
       <div className='py-4 border-b-[1px]'>
         <Container className='grid items-center justify-between grid-cols-3 lg:flex lg:flex-row'>
           <Hamburger
-            className='block w-4 px-1 text-3xl lg:hidden'
+            className='block w-4 px-1 text-3xl border-0 lg:hidden'
             onClick={onOpen}
           />
           <nav className='flex flex-row items-center justify-center gap-10 lg:justify-start'>
             <Logo />
             <NavLinks className='flex-row hidden gap-10 text-sm font-medium lg:flex' />
           </nav>
-          <div className='flex-row items-center justify-center hidden lg:flex'>
-            <Button variant='solid' colorScheme='primary' className='text-sm'>
-              ورود / ثبت نام
-            </Button>
-            <Button
-              variant='outline'
-              colorScheme='primary'
-              className='text-sm lg:block'
-            >
+          <div className='flex-row items-center justify-center hidden gap-4 lg:flex'>
+            <Button primary>ورود / ثبت نام</Button>
+            <Button primary outline>
               بخش کارفرمایان
             </Button>
           </div>

@@ -1,13 +1,13 @@
 'use client'
 
 import { FormControl, Input, InputGroup, InputRightElement } from '@chakra-ui/react'
-import Button from './components/Button'
+import Link from 'next/link'
 import { FiMapPin, FiSearch } from 'react-icons/fi'
 import Card from './components/Card'
 import job from '../public/job.png'
 import career from '../public/career.png'
 import CardInfo from './components/CardInfo'
-import Link from 'next/link'
+import Button from './components/Button'
 
 export default function Home() {
   return (
@@ -40,8 +40,8 @@ export default function Home() {
                 />
               </InputGroup>
               <Button
-                colorScheme='primary'
-                className='px-10 rounded-tr-none rounded-br-none -mr-[1px] border-[1px] border-[#2B5ADC] py-6'
+                primary
+                className='px-8 rounded-tr-none rounded-br-none -mr-[1px]'
               >
                 جستجو
               </Button>
@@ -61,7 +61,7 @@ export default function Home() {
               بیابید و در مسیر موفقیت قدم بردارید
             </p>
             <Link href='/careers'>
-              <Button colorScheme='primary' size='lg'>
+              <Button className='py-5 px-14' primary>
                 ورود به بخش هدایت شغلی
               </Button>
             </Link>

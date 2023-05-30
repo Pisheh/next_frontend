@@ -19,14 +19,14 @@ const Menu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => 
       <DrawerContent>
         <DrawerHeader className='flex flex-row items-center justify-between px-5'>
           <Logo />
-          <DrawerCloseButton className='relative -translate-y-[10px] text-lg ml-1' />
+          <DrawerCloseButton className='relative -translate-y-[10px] text-lg ml-1 text-[#2b5adc]' />
         </DrawerHeader>
         <DrawerBody className='flex flex-col justify-between py-5'>
           <NavLinks className='text-lg' liClass='mb-10' />
           <div className='flex flex-col gap-2'>
             {/* Add onClose to the button below */}
-            <Button colorScheme='primary'>ورود / ثبت نام</Button>
-            <Button variant='outline' colorScheme='primary'>
+            <Button primary>ورود / ثبت نام</Button>
+            <Button primary outline>
               بخش کارفرمایان
             </Button>
           </div>
