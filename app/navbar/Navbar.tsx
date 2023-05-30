@@ -24,8 +24,12 @@ function Header() {
             <NavLinks className='flex-row hidden gap-10 text-sm font-medium lg:flex' />
           </nav>
           <div className='flex-row items-center justify-center hidden gap-4 lg:flex'>
-            <Button primary>ورود / ثبت نام</Button>
-            <Button outline>بخش کارفرمایان</Button>
+            <Button primary className='py-2.5 text-sm'>
+              ورود / ثبت نام
+            </Button>
+            <Button outline className='py-2.5 text-sm'>
+              بخش کارفرمایان
+            </Button>
           </div>
         </Container>
       </div>
