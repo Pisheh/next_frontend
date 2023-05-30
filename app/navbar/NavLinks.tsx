@@ -18,13 +18,13 @@ function NavLinks({
         </Link>
       </li>
       <li className={`${liClass}`}>
-        <Link _hover={{ color: 'primary.500' }} href='/jobs'>
+        <Link _hover={{ color: 'primary.500' }} href='/career'>
           {icon}
           هدایت شغلی
         </Link>
       </li>
       <li className={`${liClass}`}>
-        <Link _hover={{ color: 'primary.500' }} href='/jobs'>
+        <Link _hover={{ color: 'primary.500' }} href='/consultation'>
           {icon}
           دریافت مشاوره
         </Link>
