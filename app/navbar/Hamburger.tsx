@@ -10,7 +10,7 @@ function Hamburger({
   onClick: MouseEventHandler<HTMLButtonElement>
 }) {
   return (
-    <Button primary outline className={className} onClick={onClick}>
+    <Button outline className={className} onClick={onClick}>
       <FiMenu />
     </Button>
   )

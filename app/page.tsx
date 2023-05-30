@@ -13,14 +13,14 @@ export default function Home() {
   return (
     <main className='grid items-center grid-cols-1 lg:grid-cols-2 mt-[77px] lg:mt-[84.75px] hero'>
       <section className='flex items-center justify-center h-full bg-[#2B5ADC]'>
-        <Card width='600' height='600' className='flex flex-col'>
+        <Card className='flex flex-col'>
           <CardInfo
             title='فرصت های شغلی مورد علاقه خود را جستجو کنید'
             imageSrc={job}
             footNote='✅ با استفاده از بخش هدایت شغلی می‌توانید رشته یا شغل مناسب خود را بیابید'
             className='gap-[3.7rem]'
           >
-            <div className='flex flex-row w-full px-10'>
+            <div className='flex flex-row w-full lg:px-10'>
               <InputGroup>
                 <InputRightElement className='translate-y-1'>
                   <FiSearch className='text-lg text-[#aaa]' />
@@ -50,18 +50,18 @@ export default function Home() {
         </Card>
       </section>
       <section className='flex items-center justify-center h-full bg-[#C0362C]'>
-        <Card width='600' height='600' className='flex flex-col'>
+        <Card className='flex flex-col'>
           <CardInfo
             title='هدایت شغلی برای یافتن مسیر موفقیت'
             imageSrc={career}
             className='gap-10'
           >
-            <p className='px-8 leading-7 text-center'>
+            <p className='px-8 font-bold leading-7 text-center'>
               با شرکت در دوره ها و گذراندن آزمون ها و تست های مختلف استعداد خود را
               بیابید و در مسیر موفقیت قدم بردارید
             </p>
             <Link href='/careers'>
-              <Button className='py-5 px-14' primary>
+              <Button className='py-4 px-14' primary>
                 ورود به بخش هدایت شغلی
               </Button>
             </Link>

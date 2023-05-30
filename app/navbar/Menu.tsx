@@ -26,9 +26,7 @@ const Menu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => 
           <div className='flex flex-col gap-2'>
             {/* Add onClose to the button below */}
             <Button primary>ورود / ثبت نام</Button>
-            <Button primary outline>
-              بخش کارفرمایان
-            </Button>
+            <Button outline>بخش کارفرمایان</Button>
           </div>
         </DrawerBody>
       </DrawerContent>

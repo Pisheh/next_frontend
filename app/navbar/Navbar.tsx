@@ -25,9 +25,7 @@ function Header() {
           </nav>
           <div className='flex-row items-center justify-center hidden gap-4 lg:flex'>
             <Button primary>ورود / ثبت نام</Button>
-            <Button primary outline>
-              بخش کارفرمایان
-            </Button>
+            <Button outline>بخش کارفرمایان</Button>
           </div>
         </Container>
       </div>

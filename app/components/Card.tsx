@@ -1,17 +1,13 @@
 const Card = ({
   children,
-  width,
-  height,
   className
 }: {
   children: React.ReactNode
-  width: string
-  height: string
   className?: string
 }) => {
   return (
     <div
-      className={`bg-white w-[${width}px] h-[600px] rounded-[40px] shadow-xl ${className} `}
+      className={`bg-white w-[250px] sm: md:w-[400px] lg:w-[600px] lg:h-[600px] rounded-[40px] shadow-xl ${className} `}
     >
       {children}
     </div>
