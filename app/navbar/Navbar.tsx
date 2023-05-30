@@ -16,7 +16,7 @@ function Header() {
       <div className='py-4 border-b-[1px]'>
         <Container className='grid items-center justify-between grid-cols-3 lg:flex lg:flex-row'>
           <Hamburger
-            className='block w-4 px-1 text-3xl border-0 lg:hidden'
+            className='block w-4 px-1 text-3xl border-none lg:hidden'
             onClick={onOpen}
           />
           <nav className='flex flex-row items-center justify-center gap-10 lg:justify-start'>

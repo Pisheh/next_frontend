@@ -19,11 +19,15 @@ const CardInfo = ({
         <Image src={imageSrc} alt='job' height={200} />
       </div>
       <div
-        className={`flex flex-col items-center justify-center px-10 h-1/2 ${className}`}
+        className={`flex flex-col items-center justify-center px-4 md:px-10 h-1/2 ${className}`}
       >
-        <h1 className='text-xl font-extrabold '>{title} </h1>
+        <h1 className='font-extrabold text-center md:text-xl'>{title}</h1>
         {children}
-        {footNote && <p className='text-xs text-[#575757]'>{footNote}</p>}
+        {footNote && (
+          <p className='text-xs px-4 lg:px-0 leading-5 text-center text-[#575757]'>
+            {footNote}
+          </p>
+        )}
       </div>
     </>
   )

@@ -7,7 +7,7 @@ const Card = ({
 }) => {
   return (
     <div
-      className={`bg-white w-[250px] sm: md:w-[400px] lg:w-[600px] lg:h-[600px] rounded-[40px] shadow-xl ${className} `}
+      className={`bg-white w-3/4 lg:w-[600px] lg:h-[600px] rounded-[40px] shadow-xl ${className} py-10 lg:py-0`}
     >
       {children}
     </div>

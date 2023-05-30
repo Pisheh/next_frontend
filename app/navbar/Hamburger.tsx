@@ -1,6 +1,6 @@
+import { MouseEventHandler } from 'react'
 import { FiMenu } from 'react-icons/fi'
 import Button from '../components/Button'
-import { MouseEventHandler } from 'react'
 
 function Hamburger({
   className,
@@ -11,7 +11,7 @@ function Hamburger({
 }) {
   return (
     <Button outline className={className} onClick={onClick}>
-      <FiMenu />
+      <FiMenu className='translate-x-[15px]' />
     </Button>
   )
 }
