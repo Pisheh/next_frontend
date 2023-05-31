@@ -41,7 +41,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={iranYekan.className}>
         <Providers>
           <Navbar />
-          <Modal />
           {children}
           <Footer />
         </Providers>
