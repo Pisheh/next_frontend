@@ -8,24 +8,32 @@ import Footer from './Footer/Footer'
 const iranYekan = localFont({
   src: [
     {
-      path: '../public/fonts/IranYekanLight.ttf',
+      path: '../public/fonts/IRANYekanX-Light.woff',
       weight: '200'
     },
     {
-      path: '../public/fonts/IranYekanRegular.ttf',
+      path: '../public/fonts/IRANYekanX-Regular.woff',
       weight: '400'
     },
     {
-      path: '../public/fonts/IranYekanMedium.ttf',
+      path: '../public/fonts/IRANYekanX-Medium.woff',
       weight: '500'
     },
     {
-      path: '../public/fonts/IranYekanBold.ttf',
+      path: '../public/fonts/IRANYekanX-DemiBold.woff',
+      weight: '600'
+    },
+    {
+      path: '../public/fonts/IRANYekanX-Bold.woff',
       weight: '700'
     },
     {
-      path: '../public/fonts/IranYekanExtraBold.ttf',
+      path: '../public/fonts/IRANYekanX-ExtraBold.woff',
       weight: '800'
+    },
+    {
+      path: '../public/fonts/IRANYekanX-Black.woff',
+      weight: '900'
     }
   ]
 })
