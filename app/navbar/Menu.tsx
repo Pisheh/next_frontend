@@ -12,7 +12,13 @@ import NavLinks from './NavLinks'
 import Logo from '../components/Logo'
 import Button from '../components/Button'
 
-const Menu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+interface MenuProps {
+  isOpen: boolean
+  onClose: () => void
+  onClick: () => void
+}
+
+const Menu: React.FC<MenuProps> = ({ isOpen, onClose, onClick }) => {
   return (
     <Drawer isOpen={isOpen} onClose={onClose} placement='right'>
       <DrawerOverlay />
@@ -25,7 +31,9 @@ const Menu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => 
           <NavLinks className='text-lg' liClass='mb-10' />
           <div className='flex flex-col gap-2'>
             {/* Add onClose to the button below */}
-            <Button primary>ورود / ثبت نام</Button>
+            <Button primary onClick={onClick}>
+              ورود / ثبت نام
+            </Button>
             <Button outline>بخش کارفرمایان</Button>
           </div>
         </DrawerBody>
