@@ -1,5 +1,6 @@
 'use client'
 
+import { useRef, useState } from 'react'
 import {
   Divider,
   FormControl,
@@ -13,9 +14,8 @@ import {
   ModalOverlay,
   useMediaQuery
 } from '@chakra-ui/react'
-import Button from './Button'
 import { BsFillShieldLockFill } from 'react-icons/bs'
-import { useRef } from 'react'
+import Button from './Button'
 
 interface ModalProps {
   isOpen: boolean
@@ -23,9 +23,14 @@ interface ModalProps {
 }
 
 const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
+  const [value, setValue] = useState('')
+  const [isLg] = useMediaQuery('(min-width: 800px)')
   const initialRef = useRef(null)
 
-  const [isLg] = useMediaQuery('(min-width: 800px)')
+  const onSubmit = (e: any) => {
+    e.preventDefault()
+    console.log(value)
+  }
 
   return (
     <Modal
@@ -47,15 +52,28 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           </h2>
         </ModalHeader>
         <ModalBody>
-          <FormControl>
-            <FormLabel className='mb-2 text-sm text-neutral-500'>
-              ایمیل یا شماره موبایل خود را وارد کنید
-            </FormLabel>
-            <Input dir='ltr' mb={4} ref={initialRef} />
-            <Button primary type='submit' className='w-full'>
-              ادامه
-            </Button>
-          </FormControl>
+          <form>
+            <FormControl>
+              <FormLabel className='mb-2 text-sm text-neutral-500'>
+                ایمیل یا شماره موبایل خود را وارد کنید
+              </FormLabel>
+              <Input
+                dir='ltr'
+                mb={4}
+                ref={initialRef}
+                value={value}
+                onChange={e => setValue(e.target.value)}
+              />
+              <Button
+                primary
+                type='submit'
+                className='w-full'
+                onClick={e => onSubmit(e)}
+              >
+                ادامه
+              </Button>
+            </FormControl>
+          </form>
           <Divider />
         </ModalBody>
       </ModalContent>
