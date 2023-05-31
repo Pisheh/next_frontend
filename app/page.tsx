@@ -32,12 +32,12 @@ export default function Home() {
             imageSrc={career}
             className='gap-10'
           >
-            <p className='text-sm font-bold leading-7 text-center lg:text-base lg:px-8'>
+            <p className='text-sm font-semibold leading-7 text-center lg:text-base lg:px-8'>
               با شرکت در دوره ها و گذراندن آزمون های مختلف استعداد خود را بیابید و در
               مسیر موفقیت قدم بردارید
             </p>
             <Link href='/careers'>
-              <Button className='py-4 px-14' primary>
+              <Button className='py-4 font-semibold px-14' primary>
                 ورود به بخش هدایت شغلی
               </Button>
             </Link>
