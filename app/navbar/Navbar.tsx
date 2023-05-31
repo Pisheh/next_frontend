@@ -13,6 +13,11 @@ function Header() {
   const drawerDisclosure = useDisclosure()
   const modalDisclosure = useDisclosure()
 
+  const onMenuLoginClick = () => {
+    drawerDisclosure.onClose()
+    modalDisclosure.onOpen()
+  }
+
   return (
     <header className='fixed top-0 left-0 z-10 w-full bg-white shadow-sm'>
       <div className='py-4 border-b-[1px]'>
@@ -39,7 +44,11 @@ function Header() {
           </div>
         </Container>
       </div>
-      <Menu isOpen={drawerDisclosure.isOpen} onClose={drawerDisclosure.onClose} />
+      <Menu
+        isOpen={drawerDisclosure.isOpen}
+        onClose={drawerDisclosure.onClose}
+        onClick={onMenuLoginClick}
+      />
       <LoginModal
         isOpen={modalDisclosure.isOpen}
         onClose={modalDisclosure.onClose}
