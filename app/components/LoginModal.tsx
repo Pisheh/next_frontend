@@ -10,7 +10,8 @@ import {
   ModalCloseButton,
   ModalContent,
   ModalHeader,
-  ModalOverlay
+  ModalOverlay,
+  useMediaQuery
 } from '@chakra-ui/react'
 import Button from './Button'
 import { BsFillShieldLockFill } from 'react-icons/bs'
@@ -23,11 +24,14 @@ interface ModalProps {
 
 const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const initialRef = useRef(null)
+
+  const [isLg] = useMediaQuery('(min-width: 800px)')
+
   return (
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      size={'lg'}
+      size={isLg ? 'lg' : 'sm'}
       isCentered
       initialFocusRef={initialRef}
     >
