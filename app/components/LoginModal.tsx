@@ -51,7 +51,7 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             ثبت نام یا ورود به حساب کاربری
           </h2>
         </ModalHeader>
-        <ModalBody>
+        <ModalBody px={isLg ? '10' : '5'}>
           <form>
             <FormControl>
               <FormLabel className='mb-2 text-sm text-neutral-500'>
