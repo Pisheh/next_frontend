@@ -39,6 +39,7 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       size={isLg ? 'lg' : 'sm'}
       isCentered
       initialFocusRef={initialRef}
+      motionPreset='slideInBottom'
     >
       <ModalOverlay />
       <ModalContent pt={10} pb={6} px={5}>
