@@ -7,9 +7,11 @@ import Container from '../components/Container'
 import Hamburger from './Hamburger'
 import { useDisclosure } from '@chakra-ui/react'
 import Menu from './Menu'
+import LoginModal from '../components/LoginModal'
 
 function Header() {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const drawerDisclosure = useDisclosure()
+  const modalDisclosure = useDisclosure()
 
   return (
     <header className='fixed top-0 left-0 z-10 w-full bg-white shadow-sm'>
@@ -17,14 +19,18 @@ function Header() {
         <Container className='grid items-center justify-between grid-cols-3 lg:flex lg:flex-row'>
           <Hamburger
             className='block w-4 px-1 text-3xl border-none lg:hidden'
-            onClick={onOpen}
+            onClick={drawerDisclosure.onOpen}
           />
           <nav className='flex flex-row items-center justify-center gap-10 lg:justify-start'>
             <Logo />
             <NavLinks className='flex-row hidden gap-10 text-sm font-medium lg:flex' />
           </nav>
           <div className='flex-row items-center justify-center hidden gap-4 lg:flex'>
-            <Button primary className='py-2.5 text-sm'>
+            <Button
+              primary
+              onClick={modalDisclosure.onOpen}
+              className='py-2.5 text-sm'
+            >
               ورود / ثبت نام
             </Button>
             <Button outline className='py-2.5 text-sm'>
@@ -33,7 +39,11 @@ function Header() {
           </div>
         </Container>
       </div>
-      <Menu isOpen={isOpen} onClose={onClose} />
+      <Menu isOpen={drawerDisclosure.isOpen} onClose={drawerDisclosure.onClose} />
+      <LoginModal
+        isOpen={modalDisclosure.isOpen}
+        onClose={modalDisclosure.onClose}
+      />
     </header>
   )
 }
