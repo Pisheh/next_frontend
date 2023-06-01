@@ -5,10 +5,6 @@ const Card = ({
   children: React.ReactNode
   className?: string
 }) => {
-  return (
-    <div className={`bg-white ${className} py-10 px-4 lg:px-0 lg:py-0`}>
-      {children}
-    </div>
-  )
+  return <div className={`bg-white py-10 px-4 ${className}`}>{children}</div>
 }
 export default Card
