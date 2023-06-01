@@ -10,7 +10,7 @@ import SearchInput from './components/SearchInput'
 
 export default function Home() {
   return (
-    <main className='grid items-center grid-cols-1 lg:grid-cols-2 mt-[77px] lg:offset-top hero'>
+    <main className='grid items-center grid-cols-1 lg:grid-cols-2 mt-[77px] lg:mt-[84.75px] hero'>
       <section className='flex items-center justify-center h-full bg-[#2B5ADC] py-10 md:px-10'>
         <Card className='flex flex-col gap-10 shadow-lg lg:gap-0 w-[85%] md:w-3/4 lg:w-[600px] lg:h-[600px] rounded-[40px]  lg:px-0 lg:py-0'>
           <CardInfo
