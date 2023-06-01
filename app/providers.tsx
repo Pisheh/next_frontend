@@ -6,7 +6,7 @@ import { CacheProvider } from '@chakra-ui/next-js'
 const colors = {
   primary: {
     500: '#2B5ADC',
-    600: '#1940AC',
+    600: '#2B5ADC',
     700: '#092166'
   }
 }
