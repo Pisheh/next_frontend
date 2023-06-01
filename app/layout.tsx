@@ -46,7 +46,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='fa' dir='rtl'>
-      <body className={iranYekan.className}>
+      <body className={`${iranYekan.className} bg-[#fcfcfc]`}>
         <Providers>
           <Navbar />
           {children}
