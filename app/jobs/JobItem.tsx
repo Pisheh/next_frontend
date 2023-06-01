@@ -10,7 +10,8 @@ const JobItem = () => {
         jobTitle='برنامه نویس'
         companyName='شرکت تجارت بندر'
         city='بندرعباس'
-        salary='۱۵ - ۲۰ میلیون تومان'
+        minSalary={'۱۵'}
+        maxSalary={'۲۰'}
       />
     </Card>
   )
