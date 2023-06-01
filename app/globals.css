@@ -6,8 +6,8 @@
   .hero {
     height: calc(100vh - 84.75px);
   }
-}
 
-.offset-top {
-  margin-top: 84.75px;
+  .job-detail {
+    max-height: calc(100vh - 120px);
+  }
 }
