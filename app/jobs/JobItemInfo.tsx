@@ -1,7 +1,23 @@
 import Image from 'next/image'
 import VerticalDivider from '../components/VerticalDivider'
 
-const JobItemInfo = ({ jobTitle, companyName, city, salary, img }) => {
+interface JobItemInfoProps {
+  jobTitle: string
+  companyName: string
+  city: string
+  minSalary: React.ReactNode
+  maxSalary: React.ReactNode
+  img: React.ReactNode
+}
+
+const JobItemInfo: React.FC<JobItemInfoProps> = ({
+  jobTitle,
+  companyName,
+  city,
+  minSalary,
+  maxSalary,
+  img
+}) => {
   return (
     <div className='flex flex-row gap-4'>
       <div className=''>{img}</div>
@@ -12,7 +28,9 @@ const JobItemInfo = ({ jobTitle, companyName, city, salary, img }) => {
           <VerticalDivider />
           <span className='font-medium text-muted'>{city}</span>
         </h4>
-        <p className='mb-8 text-sm text-primary'>{salary}</p>
+        <p className='mb-8 text-sm text-primary'>
+          {maxSalary} - {minSalary} میلیون تومان
+        </p>
         <p className='text-sm text-muted'>امروز</p>
       </div>
     </div>
