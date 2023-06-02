@@ -1,7 +1,7 @@
 'use client'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { RootState, AppDispatch, store } from '../store'
+import { RootState, AppDispatch } from '../store'
 import type { TypedUseSelectorHook } from 'react-redux'
 import { setSelectedJob, setIsSelected } from '../store/selectJobSlice'
 import JobItem from './JobItem'
