@@ -27,7 +27,7 @@ const JobItem: React.FC<JobItemProps> = ({
 }) => {
   return (
     <Card
-      className={`w-[80%] lg:w-[400px] shadow-sm rounded-xl border py-8 hover:shadow-md bg-[#fbfbfb] hover:bg-white transition focus:border-primary cursor-pointer ${className}`}
+      className={`w-[80%] lg:w-[400px] shadow-sm rounded-xl border py-5 hover:shadow-md bg-[#fbfbfb] hover:bg-white transition focus:border-primary cursor-pointer ${className}`}
       key={key}
       onClick={onClick}
     >
