@@ -1,6 +1,6 @@
 import './globals.css'
 import localFont from 'next/font/local'
-import { Providers } from './providers'
+import { ChakraProviders } from './providers/ChakraProviders'
 import Navbar from './navbar/Navbar'
 import Modal from './components/LoginModal'
 import Footer from './Footer/Footer'
@@ -47,11 +47,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='fa' dir='rtl'>
       <body className={`${iranYekan.className} bg-[#fcfcfc]`}>
-        <Providers>
+        <ChakraProviders>
           <Navbar />
           {children}
           <Footer />
-        </Providers>
+        </ChakraProviders>
       </body>
     </html>
   )
