@@ -1,9 +1,17 @@
+import { use } from 'react'
+import { store } from '../store'
+import { setStartupJobs } from '../store/jobSearchSlice'
 import Container from '../components/Container'
 import SearchInput from '../components/SearchInput'
 import JobDetails from './JobDetails'
-import JobItem from './JobItem'
+import fetchJobs from '../utils/fetchJobs'
+import JobItems from './JobItems'
 
 const page = () => {
+  const jobsFetch = fetchJobs()
+  const jobs = use(jobsFetch)
+  store.dispatch(setStartupJobs(jobs))
+
   return (
     <main className='py-10 mt-[84.75px]'>
       <Container className='xl:px-40 2xl:px-60'>
@@ -11,14 +19,7 @@ const page = () => {
           <SearchInput />
         </div>
         <div className='relative flex flex-row gap-10'>
-          <div className='flex flex-col gap-4 my-5'>
-            <JobItem />
-            <JobItem />
-            <JobItem />
-            <JobItem />
-            <JobItem />
-            <JobItem />
-          </div>
+          <JobItems jobs={store.getState().jobSearch.jobs.jobs} />
           <JobDetails />
         </div>
       </Container>

@@ -1,10 +1,11 @@
 import Image from 'next/image'
 import VerticalDivider from '../components/VerticalDivider'
+import simplify from '../utils/simplify'
 
 interface JobItemInfoProps {
   jobTitle: string
   companyName: string
-  city: string
+  // city: string
   minSalary: React.ReactNode
   maxSalary: React.ReactNode
   img: React.ReactNode
@@ -13,7 +14,7 @@ interface JobItemInfoProps {
 const JobItemInfo: React.FC<JobItemInfoProps> = ({
   jobTitle,
   companyName,
-  city,
+  // city,
   minSalary,
   maxSalary,
   img
@@ -26,10 +27,10 @@ const JobItemInfo: React.FC<JobItemInfoProps> = ({
         <h4 className='mb-3 text-sm font-semibold'>
           {companyName}
           <VerticalDivider />
-          <span className='font-medium text-muted'>{city}</span>
+          <span className='font-medium text-muted'>placholder</span>
         </h4>
         <p className='mb-8 text-sm text-primary'>
-          {maxSalary} - {minSalary} میلیون تومان
+          {simplify(minSalary)} - {simplify(maxSalary)} میلیون تومان
         </p>
         <p className='text-sm text-muted'>امروز</p>
       </div>
