@@ -1,9 +1,9 @@
-import './globals.css'
 import localFont from 'next/font/local'
 import { ChakraProviders } from './providers/ChakraProviders'
+import ReactQueryProvider from './providers/ReactQueryProvider'
 import Navbar from './navbar/Navbar'
-import Modal from './components/LoginModal'
 import Footer from './Footer/Footer'
+import './globals.css'
 
 const iranYekan = localFont({
   src: [
@@ -45,14 +45,16 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='fa' dir='rtl'>
-      <body className={`${iranYekan.className} bg-[#fcfcfc]`}>
-        <ChakraProviders>
-          <Navbar />
-          {children}
-          <Footer />
-        </ChakraProviders>
-      </body>
-    </html>
+    <ReactQueryProvider>
+      <html lang='fa' dir='rtl'>
+        <body className={`${iranYekan.className} bg-[#fcfcfc]`}>
+          <ChakraProviders>
+            <Navbar />
+            {children}
+            <Footer />
+          </ChakraProviders>
+        </body>
+      </html>
+    </ReactQueryProvider>
   )
 }
