@@ -5,7 +5,8 @@ import { Job } from '../types/job'
 
 export interface SearchState {
   search?: any
-  jobs: Job
+  // CHANGE TYPE LATER
+  jobs: any
 }
 
 const initialState: SearchState = {

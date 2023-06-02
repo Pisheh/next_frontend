@@ -3,8 +3,8 @@ import VerticalDivider from '../components/VerticalDivider'
 import simplify from '../utils/simplify'
 
 interface JobItemInfoProps {
-  jobTitle: string
-  companyName: string
+  jobTitle: string | undefined
+  companyName: string | undefined
   // city: string
   minSalary: React.ReactNode
   maxSalary: React.ReactNode

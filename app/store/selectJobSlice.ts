@@ -4,7 +4,8 @@ import { Job } from '../types/job'
 
 export interface selectedJob {
   isSelected: boolean
-  job: Job
+  // CHANGE TYPE LATER
+  job: any
 }
 
 const initialState: selectedJob = {
