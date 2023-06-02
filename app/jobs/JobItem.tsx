@@ -6,7 +6,11 @@ interface JobItemProps {
   key?: number
   jobTitle?: string
   companyName?: string
-  // city: string
+  city?: string
+  timeDelta?: {
+    unit: string
+    amount: number
+  }
   minSalary?: React.ReactNode
   maxSalary?: React.ReactNode
   img?: React.ReactNode
@@ -19,7 +23,8 @@ const JobItem: React.FC<JobItemProps> = ({
   img,
   jobTitle,
   companyName,
-  // city,
+  city,
+  timeDelta,
   maxSalary,
   minSalary,
   onClick,
@@ -35,7 +40,8 @@ const JobItem: React.FC<JobItemProps> = ({
         img={img}
         jobTitle={jobTitle}
         companyName={companyName}
-        // city={city}
+        city={city}
+        timeDelta={timeDelta}
         minSalary={minSalary}
         maxSalary={maxSalary}
       />

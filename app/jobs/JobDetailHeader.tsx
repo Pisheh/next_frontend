@@ -1,28 +1,39 @@
 import { store } from '../store'
 import Link from 'next/link'
 import VerticalDivider from '../components/VerticalDivider'
-import { Job } from '../types/job'
-import simplify from '../utils/simplify'
+import { localize, simplify } from '../utils/simplify'
 
 const JobDetailHeader = () => {
-  const selectedJob = store.getState().selectJob.job
+  const {
+    title,
+    employer,
+    city,
+    timedelta,
+    min_salary,
+    max_salary
+  } = store.getState().selectJob.job
 
   return (
     <div className='sticky top-0 p-5 bg-white rounded-t-2xl'>
-      <h1 className='mb-4 text-2xl font-extrabold'>{selectedJob.title}</h1>
+      <h1 className='mb-4 text-2xl font-extrabold'>{title}</h1>
       <div className='mb-8'>
         <Link href='/companies' className='text-primary hover:text-hover'>
-          {selectedJob.employer.co_name}
+          {employer.co_name}
         </Link>
         <VerticalDivider />
-        <span className='text-muted'>placeholder</span>
+        <span className='text-muted'>{city}</span>
       </div>
       <div>
         <p className='text-sm text-muted'>
-          پنج روز پیش
+          {
+            <>
+              <span>{timedelta?.amount !== 0 && localize(timedelta?.amount)} </span>
+              <span>{timedelta?.unit}</span>
+            </>
+          }
           <VerticalDivider />
           <span>
-            {simplify(selectedJob.min_salary)} - {simplify(selectedJob.max_salary)}{' '}
+            {localize(simplify(min_salary))} - {localize(simplify(max_salary))}{' '}
             میلیون تومان
           </span>
         </p>

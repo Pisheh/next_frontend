@@ -1,11 +1,17 @@
 import Image from 'next/image'
 import VerticalDivider from '../components/VerticalDivider'
-import simplify from '../utils/simplify'
+import { localize, simplify } from '../utils/simplify'
 
 interface JobItemInfoProps {
   jobTitle: string | undefined
   companyName: string | undefined
-  // city: string
+  city: string | undefined
+  timeDelta:
+    | {
+        unit: string
+        amount: number
+      }
+    | undefined
   minSalary: React.ReactNode
   maxSalary: React.ReactNode
   img: React.ReactNode
@@ -14,7 +20,8 @@ interface JobItemInfoProps {
 const JobItemInfo: React.FC<JobItemInfoProps> = ({
   jobTitle,
   companyName,
-  // city,
+  city,
+  timeDelta,
   minSalary,
   maxSalary,
   img
@@ -27,12 +34,20 @@ const JobItemInfo: React.FC<JobItemInfoProps> = ({
         <h4 className='mb-3 text-sm font-semibold'>
           {companyName}
           <VerticalDivider />
-          <span className='font-medium text-muted'>placholder</span>
+          <span className='font-medium text-muted'>{city}</span>
         </h4>
         <p className='mb-8 text-sm text-primary'>
-          {simplify(minSalary)} - {simplify(maxSalary)} میلیون تومان
+          {localize(simplify(minSalary))} - {localize(simplify(maxSalary))} میلیون
+          تومان
         </p>
-        <p className='text-sm text-muted'>امروز</p>
+        <p className='text-sm text-muted'>
+          {
+            <>
+              <span>{timeDelta?.amount !== 0 && localize(timeDelta?.amount)} </span>
+              <span>{timeDelta?.unit}</span>
+            </>
+          }
+        </p>
       </div>
     </div>
   )

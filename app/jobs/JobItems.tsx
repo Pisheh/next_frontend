@@ -18,21 +18,25 @@ const JobItems = ({ jobs }: { jobs: Object[] }) => {
       {
         // CHANGE TYPE OF JOBITEM LATER
         jobs &&
-          jobs.map((jobItem: any) => (
-            <JobItem
-              key={jobItem.id}
-              img={jobItem.employer.avatar}
-              jobTitle={jobItem.title}
-              companyName={jobItem.employer.co_name}
-              minSalary={jobItem.min_salary}
-              maxSalary={jobItem.max_salary}
-              onClick={() => {
-                dispatch(setSelectedJob(jobItem))
-                dispatch(setIsSelected(true))
-              }}
-              className={selectedJobId === jobItem.id && `border-primary `}
-            />
-          ))
+          jobs.map((job: any) => {
+            return (
+              <JobItem
+                key={job.id}
+                img={job.employer.avatar}
+                jobTitle={job.title}
+                companyName={job.employer.co_name}
+                city={job.city}
+                minSalary={job.min_salary}
+                maxSalary={job.max_salary}
+                timeDelta={job.timedelta}
+                onClick={() => {
+                  dispatch(setSelectedJob(job))
+                  dispatch(setIsSelected(true))
+                }}
+                className={selectedJobId === job.id && `border-primary `}
+              />
+            )
+          })
       }
     </div>
   )
