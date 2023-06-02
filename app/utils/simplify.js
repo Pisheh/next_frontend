@@ -1,4 +1,4 @@
-function simplify(number) {
+export function localize(number) {
   const persianDigits = {
     0: '۰',
     1: '۱',
@@ -12,9 +12,9 @@ function simplify(number) {
     9: '۹'
   }
 
-  const num = number / 1000000
-
-  return String(num).replace(/\d/g, match => persianDigits[match])
+  return String(number).replace(/\d/g, match => persianDigits[match])
 }
 
-export default simplify
+export function simplify(number) {
+  return number / 1000000
+}
