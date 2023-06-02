@@ -33,7 +33,7 @@ const JobDetailHeader = () => {
           }
           <VerticalDivider />
           <span>
-            {localize(simplify(min_salary))} - {localize(simplify(max_salary))}{' '}
+            {localize(simplify(max_salary))} - {localize(simplify(min_salary))}{' '}
             میلیون تومان
           </span>
         </p>

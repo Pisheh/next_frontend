@@ -37,7 +37,7 @@ const JobItemInfo: React.FC<JobItemInfoProps> = ({
           <span className='font-medium text-muted'>{city}</span>
         </h4>
         <p className='mb-8 text-sm text-primary'>
-          {localize(simplify(minSalary))} - {localize(simplify(maxSalary))} میلیون
+          {localize(simplify(maxSalary))} - {localize(simplify(minSalary))} میلیون
           تومان
         </p>
         <p className='text-sm text-muted'>
