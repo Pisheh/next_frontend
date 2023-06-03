@@ -2,9 +2,10 @@
 
 import { useAppDispatch, useAppSelector } from '../redux/store/hooks'
 import { setSelectedJob, setIsSelected } from '../redux/store/selectJobSlice'
+import { Job } from '../types/job'
 import JobItem from './JobItem'
 
-const JobItems = ({ jobs }: { jobs: Object[] }) => {
+const JobItems = ({ jobs }: { jobs: any }) => {
   const dispatch = useAppDispatch()
   const selectedJobId = useAppSelector(state => state.selectJob.job?.id)
 
@@ -13,7 +14,7 @@ const JobItems = ({ jobs }: { jobs: Object[] }) => {
       {
         // CHANGE TYPE OF JOBITEM LATER
         jobs &&
-          jobs.map((job: any) => {
+          jobs.map((job: Job) => {
             return (
               <JobItem
                 key={job.id}
@@ -21,8 +22,7 @@ const JobItems = ({ jobs }: { jobs: Object[] }) => {
                 jobTitle={job.title}
                 companyName={job.employer.co_name}
                 city={job.city}
-                minSalary={job.min_salary}
-                maxSalary={job.max_salary}
+                salary={job.salary}
                 timeDelta={job.timedelta}
                 onClick={() => {
                   dispatch(setSelectedJob(job))

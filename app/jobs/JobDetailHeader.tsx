@@ -3,16 +3,11 @@ import Link from 'next/link'
 import VerticalDivider from '../components/VerticalDivider'
 import { localize, simplify } from '../utils/simplify'
 import Button from '../components/Button'
+import JobSalary from './JobSalary'
+import JobPostedTime from './JobPostedTime'
 
 const JobDetailHeader = () => {
-  const {
-    title,
-    employer,
-    city,
-    timedelta,
-    min_salary,
-    max_salary
-  } = store.getState().selectJob.job
+  const { title, employer, city, timedelta, salary } = store.getState().selectJob.job
 
   return (
     <div className='sticky top-0 p-5 bg-white rounded-t-2xl'>
@@ -29,17 +24,9 @@ const JobDetailHeader = () => {
       </div>
       <div>
         <p className='text-sm text-muted'>
-          {
-            <>
-              <span>{timedelta?.amount !== 0 && localize(timedelta?.amount)} </span>
-              <span>{timedelta?.unit}</span>
-            </>
-          }
+          <JobPostedTime timeDelta={timedelta} />
           <VerticalDivider />
-          <span>
-            {localize(simplify(max_salary))} - {localize(simplify(min_salary))}{' '}
-            میلیون تومان
-          </span>
+          <JobSalary salary={salary} />
         </p>
       </div>
     </div>

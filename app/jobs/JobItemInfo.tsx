@@ -1,19 +1,21 @@
 import Image from 'next/image'
 import VerticalDivider from '../components/VerticalDivider'
 import { localize, simplify } from '../utils/simplify'
+import JobSalary from './JobSalary'
+import JobPostedTime from './JobPostedTime'
 
 interface JobItemInfoProps {
   jobTitle: string | undefined
   companyName: string | undefined
   city: string | undefined
-  timeDelta:
-    | {
-        unit: string
-        amount: number
-      }
-    | undefined
-  minSalary: React.ReactNode
-  maxSalary: React.ReactNode
+  timeDelta: {
+    unit: string
+    amount: number
+  }
+  salary: {
+    min: number
+    max: number
+  } | null
   img: React.ReactNode
 }
 
@@ -22,8 +24,7 @@ const JobItemInfo: React.FC<JobItemInfoProps> = ({
   companyName,
   city,
   timeDelta,
-  minSalary,
-  maxSalary,
+  salary,
   img
 }) => {
   return (
@@ -37,16 +38,10 @@ const JobItemInfo: React.FC<JobItemInfoProps> = ({
           <span className='font-medium text-muted'>{city}</span>
         </h4>
         <p className='mb-8 text-sm text-primary-100'>
-          {localize(simplify(maxSalary))} - {localize(simplify(minSalary))} میلیون
-          تومان
+          <JobSalary salary={salary} />
         </p>
         <p className='text-sm text-muted'>
-          {
-            <>
-              <span>{timeDelta?.amount !== 0 && localize(timeDelta?.amount)} </span>
-              <span>{timeDelta?.unit}</span>
-            </>
-          }
+          <JobPostedTime timeDelta={timeDelta} />
         </p>
       </div>
     </div>

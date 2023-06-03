@@ -1,13 +1,12 @@
 'use client'
 
 import { useAppDispatch, useAppSelector } from '../redux/store/hooks'
-import { setSelectedJob, setIsSelected } from '../redux/store/selectJobSlice'
 import JobDetailHeader from './JobDetailHeader'
 import JobDetailBody from './JobDetailBody'
 
 const JobDetails = () => {
   const dispatch = useAppDispatch()
-  const { job, isSelected } = useAppSelector(state => state.selectJob)
+  const { isSelected } = useAppSelector(state => state.selectJob)
 
   return (
     <>
