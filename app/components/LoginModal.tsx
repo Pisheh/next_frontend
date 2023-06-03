@@ -1,7 +1,7 @@
 'use client'
 
 import { use, useRef, useState } from 'react'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
+import { useAppDispatch, useAppSelector } from '../redux/store/hooks'
 import {
   Divider,
   FormControl,

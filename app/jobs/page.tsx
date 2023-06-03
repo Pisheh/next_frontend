@@ -1,6 +1,6 @@
 import { use } from 'react'
-import { store } from '../store'
-import { setStartupJobs } from '../store/jobSearchSlice'
+import { store } from '../redux/store'
+import { setStartupJobs } from '../redux/store/jobSearchSlice'
 import Container from '../components/Container'
 import SearchInput from '../components/SearchInput'
 import JobDetails from './JobDetails'

@@ -1,6 +1,6 @@
 import { HiCheckCircle } from 'react-icons/hi'
 import JobHeading from '../components/JobHeading'
-import { store } from '../store'
+import { store } from '../redux/store'
 
 interface skill {
   id: number

@@ -1,4 +1,4 @@
-import { store } from '../store'
+import { store } from '../redux/store'
 import Link from 'next/link'
 import VerticalDivider from '../components/VerticalDivider'
 import { localize, simplify } from '../utils/simplify'

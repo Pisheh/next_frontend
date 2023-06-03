@@ -1,7 +1,7 @@
 'use client'
 
-import { useAppDispatch, useAppSelector } from '../store/hooks'
-import { setSelectedJob, setIsSelected } from '../store/selectJobSlice'
+import { useAppDispatch, useAppSelector } from '../redux/store/hooks'
+import { setSelectedJob, setIsSelected } from '../redux/store/selectJobSlice'
 import JobItem from './JobItem'
 
 const JobItems = ({ jobs }: { jobs: Object[] }) => {

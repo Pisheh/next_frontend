@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { Job } from '../types/job'
+import { Job } from '../../types/job'
 
 export interface selectedJob {
   isSelected: boolean
