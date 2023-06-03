@@ -4,6 +4,7 @@ interface ButtonProps {
   children: React.ReactNode
   primary?: boolean
   secondary?: boolean
+  success?: boolean
   outline?: boolean
   type?: 'button' | 'submit'
   className?: string
@@ -14,6 +15,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   primary,
   secondary,
+  success,
   outline,
   type,
   className,
@@ -22,8 +24,9 @@ const Button: React.FC<ButtonProps> = ({
   const classes = classNames(
     'px-6 py-2 border-[1.5px] rounded-lg hover:shadow-lg transition',
     {
-      'border-primary bg-primary text-white hover:bg-hover hover:border-hover': primary,
-      'bg-transparent text-primary border-primary': outline
+      'border-primary-100 bg-primary-100 text-white hover:bg-primary-200 hover:border-primary-200': primary,
+      'border-success-100 bg-success-100 text-white hover:bg-success-200 hover:border-success-200': success,
+      'bg-transparent text-primary-100 border-primary-100': outline
     },
     className
   )
