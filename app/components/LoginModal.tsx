@@ -52,7 +52,7 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
 
   const dispatch = useAppDispatch()
   const { user, isLoggedIn } = useAppSelector(state => state.user)
-  console.log(user, isLoggedIn)
+  // console.log(user, isLoggedIn)
 
   const onSubmit = (e: any) => {
     e.preventDefault()
