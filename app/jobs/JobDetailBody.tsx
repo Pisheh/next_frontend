@@ -8,8 +8,8 @@ import JobSkills from './JobSkills'
 const JobDetailBody = () => {
   return (
     <div className='h-full bg-white rounded-b-2xl'>
-      <Tabs colorScheme='primary'>
-        <TabList className='sticky top-[164px] bg-white'>
+      <Tabs colorScheme='primary' className='h-full'>
+        <TabList className='sticky top-[175px] bg-white'>
           <Tab>درباره شغل</Tab>
           <Tab>درباره شرکت</Tab>
         </TabList>
