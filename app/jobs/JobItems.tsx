@@ -28,7 +28,7 @@ const JobItems = ({ jobs }: { jobs: Object[] }) => {
                   dispatch(setSelectedJob(job))
                   dispatch(setIsSelected(true))
                 }}
-                className={selectedJobId === job.id && `border-primary `}
+                className={selectedJobId === job.id && `border-primary-100`}
               />
             )
           })
