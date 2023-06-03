@@ -36,7 +36,7 @@ const JobItemInfo: React.FC<JobItemInfoProps> = ({
           <VerticalDivider />
           <span className='font-medium text-muted'>{city}</span>
         </h4>
-        <p className='mb-8 text-sm text-primary'>
+        <p className='mb-8 text-sm text-primary-100'>
           {localize(simplify(maxSalary))} - {localize(simplify(minSalary))} میلیون
           تومان
         </p>
