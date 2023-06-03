@@ -2,6 +2,7 @@ import { store } from '../store'
 import Link from 'next/link'
 import VerticalDivider from '../components/VerticalDivider'
 import { localize, simplify } from '../utils/simplify'
+import Button from '../components/Button'
 
 const JobDetailHeader = () => {
   const {
@@ -23,7 +24,7 @@ const JobDetailHeader = () => {
         <VerticalDivider />
         <span className='text-muted'>{city}</span>
       </div>
-      <div>
+      <div className='flex flex-row items-center justify-between'>
         <p className='text-sm text-muted'>
           {
             <>
@@ -37,6 +38,7 @@ const JobDetailHeader = () => {
             میلیون تومان
           </span>
         </p>
+        <Button success>ارسال رزومه</Button>
       </div>
     </div>
   )
