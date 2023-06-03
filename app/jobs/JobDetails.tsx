@@ -1,14 +1,9 @@
 'use client'
 
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState, AppDispatch, store } from '../store'
-import type { TypedUseSelectorHook } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { setSelectedJob, setIsSelected } from '../store/selectJobSlice'
 import JobDetailHeader from './JobDetailHeader'
 import JobDetailBody from './JobDetailBody'
-
-export const useAppDispatch: () => AppDispatch = useDispatch
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 const JobDetails = () => {
   const dispatch = useAppDispatch()

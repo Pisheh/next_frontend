@@ -1,6 +1,8 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { use, useRef, useState } from 'react'
+import { useAppDispatch, useAppSelector } from '../store/hooks'
+import { setUser, setIsLoggedIn } from '../store/userSlice'
 import {
   Divider,
   FormControl,
@@ -23,9 +25,35 @@ interface ModalProps {
 }
 
 const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
+  const identifyUser = async () => {
+    const res = await fetch('http://199.231.235.83:8923/login', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: 'example@example.com'
+      })
+    })
+
+    return res.json()
+  }
+
+  // const jobsFetch = identifyUser()
+  // const identified = use(jobsFetch)
+
+  if (null) {
+    console.log('User exists')
+  }
+
   const [value, setValue] = useState('')
   const [isLg] = useMediaQuery('(min-width: 800px)')
   const initialRef = useRef(null)
+
+  const dispatch = useAppDispatch()
+  const { user, isLoggedIn } = useAppSelector(state => state.user)
+  console.log(user, isLoggedIn)
 
   const onSubmit = (e: any) => {
     e.preventDefault()
