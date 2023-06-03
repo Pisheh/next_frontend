@@ -1,0 +1,18 @@
+import { localize } from '../utils/simplify'
+
+const JobPostedTime = ({
+  timeDelta
+}: {
+  timeDelta: {
+    amount: number | null
+    unit: string
+  }
+}) => {
+  return (
+    <>
+      <span>{timeDelta?.amount !== 0 && localize(timeDelta?.amount)} </span>
+      <span>{timeDelta?.unit}</span>
+    </>
+  )
+}
+export default JobPostedTime
