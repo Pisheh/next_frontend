@@ -1,10 +1,10 @@
 export interface Jobs {
   meta: {
-    total_count: number,
-    page_count: number,
-    current_page: number,
+    total_count: number
+    page_count: number
+    current_page: number
     per_page: number
-  },
+  }
   jobs: {
     id: number
     title: string
@@ -29,8 +29,15 @@ export interface Job {
   id: number
   title: string
   content: string
-  min_salary: number
-  max_salary: number
+  salary: {
+    min: number
+    max: number
+  } | null
+  city: string
+  timedelta: {
+    amount: number
+    unit: string
+  }
   created_on: Date
   employer: {
     uuid: string
