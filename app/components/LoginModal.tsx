@@ -2,7 +2,6 @@
 
 import { use, useRef, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
-import { setUser, setIsLoggedIn } from '../store/userSlice'
 import {
   Divider,
   FormControl,
