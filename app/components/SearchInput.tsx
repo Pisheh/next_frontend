@@ -1,10 +1,17 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { FormControl, Input, InputGroup, InputRightElement } from '@chakra-ui/react'
 import { FiMapPin, FiSearch } from 'react-icons/fi'
 import Button from './Button'
 
 const SearchInput = () => {
+  const router = useRouter()
+
+  const onClick = () => {
+    router.push('/jobs')
+  }
+
   return (
     <>
       <InputGroup>
@@ -25,6 +32,7 @@ const SearchInput = () => {
       <Button
         primary
         className='px-8 rounded-t-none lg:rounded-md lg:rounded-tr-none lg:rounded-br-none lg:-mr-[1px]'
+        onClick={onClick}
       >
         جستجو
       </Button>
