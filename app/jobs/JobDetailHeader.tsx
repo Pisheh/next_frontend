@@ -16,15 +16,18 @@ const JobDetailHeader = () => {
 
   return (
     <div className='sticky top-0 p-5 bg-white rounded-t-2xl'>
-      <h1 className='mb-4 text-2xl font-extrabold'>{title}</h1>
+      <div className='flex flex-row items-center justify-between mb-4'>
+        <h1 className='text-2xl font-extrabold'>{title}</h1>
+        <Button success>ارسال رزومه</Button>
+      </div>
       <div className='mb-8'>
-        <Link href='/companies' className='text-primary hover:text-hover'>
+        <Link href='/companies' className='text-primary-100 hover:text-primary-200'>
           {employer.co_name}
         </Link>
         <VerticalDivider />
         <span className='text-muted'>{city}</span>
       </div>
-      <div className='flex flex-row items-center justify-between'>
+      <div>
         <p className='text-sm text-muted'>
           {
             <>
@@ -38,7 +41,6 @@ const JobDetailHeader = () => {
             میلیون تومان
           </span>
         </p>
-        <Button success>ارسال رزومه</Button>
       </div>
     </div>
   )
