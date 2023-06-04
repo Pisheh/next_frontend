@@ -18,7 +18,13 @@ const Loading = () => {
           <div className='flex flex-col gap-4 my-5'>
             {Array.from({ length: len }).map((_, index) => (
               <Skeleton key={index}>
-                <JobItem />
+                <JobItem
+                  timeDelta={{
+                    unit: '',
+                    amount: 0
+                  }}
+                  salary={null}
+                />
               </Skeleton>
             ))}
           </div>
