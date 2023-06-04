@@ -43,6 +43,7 @@ export interface Job {
     uuid: string
     avatar: null
     co_name: string
+    city: string
   }
   skills: {
     id: number
