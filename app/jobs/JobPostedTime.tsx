@@ -1,4 +1,4 @@
-import { localize } from '../utils/simplify'
+import { localize } from '../utils/helpers'
 
 const JobPostedTime = ({
   timeDelta
