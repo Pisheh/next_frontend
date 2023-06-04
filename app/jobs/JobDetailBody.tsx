@@ -2,7 +2,7 @@
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
 import JobInfo from './JobInfo'
-import JobDescription from './JobDescription'
+import JobDescription from './JobRequirements'
 import JobSkills from './JobSkills'
 
 const JobDetailBody = () => {
