@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import VerticalDivider from '../components/VerticalDivider'
-import { localize, simplify } from '../utils/simplify'
 import JobSalary from './JobSalary'
 import JobPostedTime from './JobPostedTime'
 
