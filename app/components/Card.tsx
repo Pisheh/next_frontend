@@ -12,7 +12,7 @@ const Card = ({
   onClick?: () => void
 }) => {
   return (
-    <div key={key} className={`bg-white py-10 px-4 ${className}`} onClick={onClick}>
+    <div className={`bg-white py-10 px-4 ${className}`} onClick={onClick}>
       {children}
     </div>
   )
