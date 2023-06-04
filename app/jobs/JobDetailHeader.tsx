@@ -1,13 +1,12 @@
 import { store } from '../redux/store'
 import Link from 'next/link'
 import VerticalDivider from '../components/VerticalDivider'
-import { localize, simplify } from '../utils/simplify'
 import Button from '../components/Button'
 import JobSalary from './JobSalary'
 import JobPostedTime from './JobPostedTime'
 
 const JobDetailHeader = () => {
-  const { title, employer, city, timedelta, salary } = store.getState().selectJob.job
+  const { title, employer, timedelta, salary } = store.getState().selectJob.job
 
   return (
     <div className='sticky top-0 p-5 bg-white rounded-t-2xl'>
