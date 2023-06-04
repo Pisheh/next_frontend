@@ -1,15 +1,14 @@
-import { use } from 'react'
 import { store } from '../redux/store'
 import { setStartupJobs } from '../redux/store/jobSearchSlice'
 import Container from '../components/Container'
 import SearchInput from '../components/SearchInput'
 import JobDetails from './JobDetails'
-import fetchJobs from '../utils/fetchJobs'
 import JobItems from './JobItems'
+import fetchJobs from '../utils/fetchJobs'
 
-const page = () => {
-  const jobsFetch = fetchJobs()
-  const jobs = use(jobsFetch)
+const page = async () => {
+  const data = fetchJobs(1, 15)
+  const jobs = await data
   store.dispatch(setStartupJobs(jobs))
 
   return (
