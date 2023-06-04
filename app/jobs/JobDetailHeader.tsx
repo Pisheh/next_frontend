@@ -20,7 +20,7 @@ const JobDetailHeader = () => {
           {employer.co_name}
         </Link>
         <VerticalDivider />
-        <span className='text-muted'>{city}</span>
+        <span className='text-muted'>{employer.city}</span>
       </div>
       <div>
         <p className='text-sm text-muted'>
