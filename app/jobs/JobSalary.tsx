@@ -1,4 +1,4 @@
-import { localize, simplify } from '../utils/simplify'
+import { localize, simplify } from '../utils/helpers'
 
 const JobSalary = ({
   salary
