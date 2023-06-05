@@ -1,9 +1,10 @@
 import localFont from 'next/font/local'
 import { ChakraProviders } from './providers/ChakraProviders'
+import ReduxProvider from './providers/ReduxProvider'
+import QueryProvier from './providers/QueryProvider'
 import Navbar from './navbar/Navbar'
 import Footer from './Footer/Footer'
 import './globals.css'
-import ReduxProvider from './providers/ReduxProvider'
 
 const iranYekan = localFont({
   src: [
@@ -48,11 +49,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang='fa' dir='rtl'>
       <body className={`${iranYekan.className} bg-[#fcfcfc]`}>
         <ReduxProvider>
-          <ChakraProviders>
-            <Navbar />
-            {children}
-            <Footer />
-          </ChakraProviders>
+          <QueryProvier>
+            <ChakraProviders>
+              <Navbar />
+              {children}
+              <Footer />
+            </ChakraProviders>
+          </QueryProvier>
         </ReduxProvider>
       </body>
     </html>
