@@ -1,6 +1,10 @@
 'use client'
 
-import { use, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
+import axios from 'axios'
+import { signIn, useSession } from 'next-auth/react'
+import { useMutation } from 'react-query'
+import Image from 'next/image'
 import { useAppDispatch, useAppSelector } from '../redux/store/hooks'
 import {
   Divider,
@@ -17,6 +21,10 @@ import {
 } from '@chakra-ui/react'
 import { BsFillShieldLockFill } from 'react-icons/bs'
 import Button from './Button'
+import inputCheck from '../utils/inputCheck'
+import google from '../../public/google.svg'
+import { setUser } from '../redux/store/userSlice'
+import { FiEye, FiEyeOff } from 'react-icons/fi'
 
 interface ModalProps {
   isOpen: boolean
@@ -24,47 +32,83 @@ interface ModalProps {
 }
 
 const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
-  const identifyUser = async () => {
-    const res = await fetch('http://199.231.235.83:8923/login', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: 'example@example.com'
-      })
-    })
-
-    return res.json()
-  }
-
-  // const jobsFetch = identifyUser()
-  // const identified = use(jobsFetch)
-
-  if (null) {
-    console.log('User exists')
-  }
-
   const [value, setValue] = useState('')
-  const [isLg] = useMediaQuery('(min-width: 800px)')
+  const [password, setPassword] = useState('')
+  const [isUser, setIsUser] = useState(null)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [showPass, setShowPass] = useState(false)
   const initialRef = useRef(null)
+  const [isLg] = useMediaQuery('(min-width: 800px)')
 
   const dispatch = useAppDispatch()
-  const { user, isLoggedIn } = useAppSelector(state => state.user)
-  // console.log(user, isLoggedIn)
+
+  const checkMutation = useMutation({
+    // @ts-ignore
+    mutationFn: userInfo => axios.post('http://199.231.235.83:8923/user', userInfo),
+    onSuccess: ({ data }) => {
+      setIsUser(data)
+      console.log(value)
+      setValue('')
+    },
+    onError: err => {
+      console.log(err)
+    }
+  })
+
+  const loginMutation = useMutation({
+    // @ts-ignore
+    mutationFn: user => axios.post('http://199.231.235.83:8923/login', user),
+    onSuccess: ({ data }) => {
+      setIsLoggedIn(true)
+      console.log(data)
+    },
+    onError: err => {
+      console.log(err)
+    }
+  })
 
   const onSubmit = (e: any) => {
     e.preventDefault()
-    console.log(value)
+    if (inputCheck(value) === 'email') {
+      // @ts-ignore
+      checkMutation.mutate({
+        email: value
+      })
+    } else if (inputCheck(value) === 'phone') {
+      // @ts-ignore
+      checkMutation.mutate({
+        number: value
+      })
+    }
+  }
+
+  const onPasswordSubmit = (e: any) => {
+    e.preventDefault()
+    // @ts-ignore
+    loginMutation.mutate({
+      email: 'example1@example.com',
+      password: password,
+      role: 'employer'
+    })
+    dispatch(
+      setUser({
+        email: value
+      })
+    )
+  }
+
+  const onModalClose = () => {
+    setValue('')
+    setPassword('')
+    onClose()
   }
 
   return (
     <Modal
       isOpen={isOpen}
-      onClose={onClose}
+      onClose={onModalClose}
       size={isLg ? 'lg' : 'sm'}
-      isCentered
+      isCentered={isLg ? true : false}
       initialFocusRef={initialRef}
       motionPreset='slideInBottom'
     >
@@ -80,29 +124,95 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           </h2>
         </ModalHeader>
         <ModalBody px={isLg ? '10' : '5'}>
-          <form>
-            <FormControl>
-              <FormLabel className='mb-2 text-sm text-muted'>
-                ایمیل یا شماره موبایل خود را وارد کنید
-              </FormLabel>
-              <Input
-                dir='ltr'
-                mb={4}
-                ref={initialRef}
-                value={value}
-                onChange={e => setValue(e.target.value)}
-              />
-              <Button
-                primary
-                type='submit'
-                className='w-full'
-                onClick={e => onSubmit(e)}
-              >
-                ادامه
-              </Button>
-            </FormControl>
-          </form>
-          <Divider />
+          {isLoggedIn ? (
+            <p className='text-center'>خوش آمدید</p>
+          ) : (
+            <form>
+              <FormControl>
+                {isUser ? (
+                  <>
+                    <FormLabel className='mb-2 text-sm text-muted'>
+                      رمز عبور خود را وارد کنید
+                    </FormLabel>
+                    <div className='relative'>
+                      <Input
+                        dir='ltr'
+                        mb={4}
+                        ref={initialRef}
+                        value={password}
+                        onChange={e => {
+                          setPassword(e.target.value)
+                        }}
+                        type={showPass ? 'text' : 'password'}
+                      />
+                      <Button
+                        rounded
+                        className='absolute top-[5px] z-10 border-none shadow-none right-2 hover:shadow-none hover:bg-neutral-100 px-0 py-0'
+                        type='button'
+                        onClick={() => setShowPass(!showPass)}
+                      >
+                        {showPass ? (
+                          <FiEyeOff className='m-2' />
+                        ) : (
+                          <FiEye className='m-2' />
+                        )}
+                      </Button>
+                    </div>
+                    <Button
+                      primary
+                      className='w-full'
+                      onClick={e => {
+                        onPasswordSubmit(e)
+                      }}
+                    >
+                      ثبت
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <FormLabel className='mb-2 text-sm text-muted'>
+                      ایمیل یا شماره موبایل خود را وارد کنید
+                    </FormLabel>
+                    <Input
+                      dir='ltr'
+                      mb={4}
+                      ref={initialRef}
+                      value={value}
+                      onChange={e => setValue(e.target.value)}
+                    />
+                    <Button
+                      primary
+                      className='w-full'
+                      type='submit'
+                      onClick={e => {
+                        onSubmit(e)
+                      }}
+                    >
+                      ادامه
+                    </Button>
+                    <Divider className='my-6' />
+
+                    <Button
+                      outline
+                      className='relative w-full'
+                      onClick={e => {
+                        e.preventDefault()
+                        signIn('google')
+                      }}
+                    >
+                      <Image
+                        src={google}
+                        alt='Google'
+                        width={30}
+                        className='absolute translate-x-[50px] -translate-y-1/2 top-1/2 left-1/2'
+                      />
+                      <span className='pr-8'>با گوگل وارد شوید</span>
+                    </Button>
+                  </>
+                )}
+              </FormControl>
+            </form>
+          )}
         </ModalBody>
       </ModalContent>
     </Modal>
