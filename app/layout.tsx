@@ -1,7 +1,5 @@
 import localFont from 'next/font/local'
-import { ChakraProviders } from './providers/ChakraProviders'
-import ReduxProvider from './providers/ReduxProvider'
-import QueryProvier from './providers/QueryProvider'
+import Providers from './providers/Providers'
 import Navbar from './navbar/Navbar'
 import Footer from './Footer/Footer'
 import './globals.css'
@@ -48,15 +46,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='fa' dir='rtl'>
       <body className={`${iranYekan.className} bg-[#fcfcfc]`}>
-        <ReduxProvider>
-          <QueryProvier>
-            <ChakraProviders>
-              <Navbar />
-              {children}
-              <Footer />
-            </ChakraProviders>
-          </QueryProvier>
-        </ReduxProvider>
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   )
