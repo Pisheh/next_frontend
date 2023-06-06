@@ -1,5 +1,5 @@
-export function localize(number) {
-  const persianDigits = {
+export function localize(number: number) {
+  const persianDigits: any = {
     0: '۰',
     1: '۱',
     2: '۲',
@@ -15,6 +15,6 @@ export function localize(number) {
   return String(number).replace(/\d/g, match => persianDigits[match])
 }
 
-export function simplify(number) {
+export function simplify(number: number) {
   return number / 1000000
 }
