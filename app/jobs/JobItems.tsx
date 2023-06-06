@@ -2,15 +2,16 @@
 
 import { useAppDispatch, useAppSelector } from '../redux/store/hooks'
 import { setSelectedJob, setIsSelected } from '../redux/store/selectJobSlice'
-import { Job } from '../types/job'
+import { Job, Jobs } from '../types/job'
 import JobItem from './JobItem'
+import JobPagination from './JobPagination'
 
-const JobItems = ({ jobs }: { jobs: any }) => {
+const JobItems = ({ jobs }: any) => {
   const dispatch = useAppDispatch()
   const selectedJobId = useAppSelector(state => state.selectJob.job.id)
 
   return (
-    <div className='flex flex-col gap-4 my-5'>
+    <div className='flex flex-col items-start gap-4 my-5'>
       {jobs?.map((job: Job) => (
         <JobItem
           key={job.id}
@@ -27,8 +28,9 @@ const JobItems = ({ jobs }: { jobs: any }) => {
           className={selectedJobId === job.id && `border-primary-100`}
         />
       ))}
-      <h1>Pagination</h1>
+      <JobPagination />
     </div>
   )
 }
+
 export default JobItems
