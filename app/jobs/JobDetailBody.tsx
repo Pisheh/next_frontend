@@ -4,6 +4,7 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
 import JobInfo from './JobInfo'
 import JobDescription from './JobRequirements'
 import JobSkills from './JobSkills'
+import CompanyInfo from './CompanyInfo'
 
 const JobDetailBody = () => {
   return (
@@ -19,7 +20,9 @@ const JobDetailBody = () => {
             <JobSkills />
             <JobDescription />
           </TabPanel>
-          <TabPanel>Company Info</TabPanel>
+          <TabPanel>
+            <CompanyInfo />
+          </TabPanel>
         </TabPanels>
       </Tabs>
     </div>
