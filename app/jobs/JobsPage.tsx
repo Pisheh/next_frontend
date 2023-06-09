@@ -1,4 +1,5 @@
 'use client'
+
 import { store } from '../redux/store'
 import { setStartupJobs } from '../redux/store/jobSearchSlice'
 import Container from '../components/Container'
@@ -7,28 +8,23 @@ import JobDetails from './JobDetails'
 import JobItems from './JobItems'
 import { useMutation, useQuery } from 'react-query'
 import axios from 'axios'
-import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../redux/store/hooks'
 import fetchJobs from '../utils/fetchJobs'
-
-// const data = fetchJobs(1, 15)
+import { Skeleton } from '@chakra-ui/react'
 
 const JobsPage = () => {
-  // const jobs = await data
-  // store.dispatch(setStartupJobs(jobs))
-
   const dispatch = useAppDispatch()
 
-  const mutation = useMutation({
-    // @ts-ignore
-    mutationFn: pages => axios.post('http://199.231.235.83:8923/jobs/page', pages),
-    onSuccess: ({ data }) => dispatch(setStartupJobs(data))
+  const { isLoading, isError, error } = useQuery({
+    queryKey: ['jobs'],
+    queryFn: async () => {
+      const { data } = await fetchJobs(1, 15)
+      dispatch(setStartupJobs(data.jobs))
+    },
+    refetchOnWindowFocus: false
   })
 
-  useEffect(() => {
-    // @ts-ignore
-    mutation.mutate({ page: 1, per_page: 15 })
-  }, [])
+  const jobs = useAppSelector(state => state.jobSearch.jobs)
 
   return (
     <main className='py-10 mt-[84.75px]'>
@@ -36,9 +32,16 @@ const JobsPage = () => {
         <div className='flex flex-row mb-5'>
           <SearchInput />
         </div>
-        <div className='relative flex flex-row gap-10'>
-          <JobItems jobs={store.getState().jobSearch.jobs.jobs} />
-          <JobDetails />
+        {isLoading && (
+          <Skeleton>
+            <JobItems jobs={jobs} />
+          </Skeleton>
+        )}
+        <div className='flex flex-col gap-10 lg:flex-row'>
+          <JobItems jobs={jobs} />
+          <div className='hidden lg:block'>
+            <JobDetails />
+          </div>
         </div>
       </Container>
     </main>
