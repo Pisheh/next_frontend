@@ -4,7 +4,7 @@ const JobPostedTime = ({
   timeDelta
 }: {
   timeDelta: {
-    amount: number | null
+    amount: number
     unit: string
   }
 }) => {
