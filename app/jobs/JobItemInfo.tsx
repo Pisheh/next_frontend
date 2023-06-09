@@ -36,7 +36,7 @@ const JobItemInfo: React.FC<JobItemInfoProps> = ({
           <VerticalDivider />
           <span className='font-medium text-muted'>{city}</span>
         </h4>
-        <p className='mb-8 text-sm text-primary-100'>
+        <p className='mb-8 text-sm font-semibold text-primary-100'>
           <JobSalary salary={salary} />
         </p>
         <p className='text-sm text-muted'>
