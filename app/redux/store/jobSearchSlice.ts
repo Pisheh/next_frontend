@@ -14,7 +14,7 @@ const initialState: SearchState = {
     title: '',
     city: ''
   },
-  jobs: {}
+  jobs: []
 }
 
 const jobSearchSlice = createSlice({
