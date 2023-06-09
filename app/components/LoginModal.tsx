@@ -37,6 +37,7 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [isUser, setIsUser] = useState(null)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [showPass, setShowPass] = useState(false)
+  const [inputError, setInputError] = useState(false)
   const initialRef = useRef(null)
   const [isLg] = useMediaQuery('(min-width: 800px)')
 
@@ -60,9 +61,9 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     mutationFn: user => axios.post('http://199.231.235.83:8923/login', user),
     onSuccess: ({ data }) => {
       setIsLoggedIn(true)
-      console.log(data)
     },
     onError: err => {
+      setInputError(true)
       console.log(err)
     }
   })
@@ -95,11 +96,14 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
         email: value
       })
     )
+    setInputError(false)
   }
 
   const onModalClose = () => {
     setValue('')
     setPassword('')
+    setIsUser(null)
+    setInputError(false)
     onClose()
   }
 
@@ -131,9 +135,9 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
               <FormControl>
                 {isUser ? (
                   <>
-                    <FormLabel className='mb-2 text-sm text-muted'>
+                    <p className='mb-2 text-sm text-muted'>
                       رمز عبور خود را وارد کنید
-                    </FormLabel>
+                    </p>
                     <div className='relative'>
                       <Input
                         dir='ltr'
@@ -144,18 +148,22 @@ const LoginModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                           setPassword(e.target.value)
                         }}
                         type={showPass ? 'text' : 'password'}
+                        className={`
+                        ${inputError && 'border-red-600'}
+                        `}
                       />
+                      {inputError && (
+                        <p className='mb-4 text-sm text-red-600'>
+                          رمز عبور اشتباه است
+                        </p>
+                      )}
                       <Button
                         rounded
-                        className='absolute top-[5px] z-10 border-none shadow-none right-2 hover:shadow-none hover:bg-neutral-100 px-0 py-0'
+                        className='absolute top-[5px] z-10 border-none shadow-none right-2 hover:shadow-none hover:bg-neutral-100 p-2'
                         type='button'
                         onClick={() => setShowPass(!showPass)}
                       >
-                        {showPass ? (
-                          <FiEyeOff className='m-2' />
-                        ) : (
-                          <FiEye className='m-2' />
-                        )}
+                        {showPass ? <FiEyeOff /> : <FiEye />}
                       </Button>
                     </div>
                     <Button
