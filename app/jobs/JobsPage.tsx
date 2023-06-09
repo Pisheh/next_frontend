@@ -32,12 +32,12 @@ const JobsPage = () => {
         <div className='flex flex-row mb-5'>
           <SearchInput />
         </div>
-        {isLoading && (
-          <Skeleton>
-            <JobItems jobs={jobs} />
-          </Skeleton>
-        )}
         <div className='flex flex-col gap-10 lg:flex-row'>
+          {isLoading && (
+            <Skeleton>
+              <JobItems jobs={jobs} />
+            </Skeleton>
+          )}
           <JobItems jobs={jobs} />
           <div className='hidden lg:block'>
             <JobDetails />
