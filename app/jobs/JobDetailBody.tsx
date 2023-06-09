@@ -5,6 +5,7 @@ import JobInfo from './JobInfo'
 import JobDescription from './JobRequirements'
 import JobSkills from './JobSkills'
 import CompanyInfo from './CompanyInfo'
+import RelatedCareers from './RelatedCareers'
 
 const JobDetailBody = () => {
   return (
@@ -13,6 +14,7 @@ const JobDetailBody = () => {
         <TabList className='sticky top-[175px] bg-white'>
           <Tab>درباره شغل</Tab>
           <Tab>درباره شرکت</Tab>
+          <Tab>هدایت های شغلی مرتبط</Tab>
         </TabList>
         <TabPanels className='overflow-y-auto'>
           <TabPanel className='flex flex-col gap-8 p-7'>
@@ -22,6 +24,9 @@ const JobDetailBody = () => {
           </TabPanel>
           <TabPanel>
             <CompanyInfo />
+          </TabPanel>
+          <TabPanel>
+            <RelatedCareers />
           </TabPanel>
         </TabPanels>
       </Tabs>
