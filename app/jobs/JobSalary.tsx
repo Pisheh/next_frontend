@@ -14,7 +14,7 @@ const JobSalary = ({
       تومان
     </span>
   ) : (
-    <span>توافقی</span>
+    <span className='text-neutral-500'>توافقی</span>
   )
 }
 
