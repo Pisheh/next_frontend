@@ -1,6 +1,7 @@
 {
-  "name": "next_frontend",
-  "version": "0.1.0",
+  "name": "pisheh",
+  "version": "1.0.0",
+  "author": "Sepehr Gorgini",
   "private": true,
   "scripts": {
     "dev": "next dev",
