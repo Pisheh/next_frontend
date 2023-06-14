@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "author": "Sepehr Gorgini",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
