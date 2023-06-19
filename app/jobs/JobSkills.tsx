@@ -14,8 +14,8 @@ const JobSkills = () => {
     <div>
       <JobHeading>مهارت ها و شاخص ها</JobHeading>
       <ul className='py-5 space-y-4'>
-        {skills.map((skill: skill) => (
-          <li key={skill.id} className='flex flex-row items-center gap-2'>
+        {skills.map((skill: skill, index: number) => (
+          <li key={index} className='flex flex-row items-center gap-2'>
             <HiCheckCircle className='text-2xl text-gray-400' />
             <span>{skill.title}</span>
           </li>
