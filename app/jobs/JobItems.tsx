@@ -19,9 +19,8 @@ const JobItems = ({ jobs }: { jobs: Job[] }) => {
       {jobs?.map((job: Job) => (
         <JobItem
           key={job.id}
-          img={job.employer.avatar}
           jobTitle={job.title}
-          companyName={job.employer.co_name}
+          companyName={job.employer.coName}
           city={job.employer.city}
           salary={job.salary}
           timeDelta={job.timedelta}

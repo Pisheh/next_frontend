@@ -16,7 +16,7 @@ const JobDetailHeader = () => {
       </div>
       <div className='mb-8'>
         <Link href='/companies' className='text-primary-100 hover:text-primary-200'>
-          {employer.co_name}
+          {employer.coName}
         </Link>
         <VerticalDivider />
         <span className='text-muted'>{employer.city}</span>
