@@ -1,7 +1,7 @@
 import localFont from 'next/font/local'
 import Providers from './providers/Providers'
 import Navbar from './navbar/Navbar'
-import Footer from './Footer/Footer'
+import Footer from './footer/Footer'
 import './globals.css'
 
 const iranYekan = localFont({
