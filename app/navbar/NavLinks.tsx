@@ -14,7 +14,7 @@ function NavLinks({
       <li className={`${liClass}`}>
         <Link _hover={{ color: 'primary.500' }} href='/jobs'>
           {icon}
-          آگهی ها
+          فرصت های شغلی
         </Link>
       </li>
       <li className={`${liClass}`}>
