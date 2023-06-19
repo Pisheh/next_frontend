@@ -1,24 +1,30 @@
 'use client'
 
-import { store } from '../redux/store'
+import { useQuery } from 'react-query'
+import { useSearchParams } from 'next/navigation'
+import { Skeleton } from '@chakra-ui/react'
+import fetchJobs from '../utils/fetchJobs'
+import { useAppDispatch, useAppSelector } from '../redux/store/hooks'
 import { setStartupJobs } from '../redux/store/jobSearchSlice'
 import Container from '../components/Container'
 import SearchInput from '../components/SearchInput'
 import JobDetails from './JobDetails'
 import JobItems from './JobItems'
-import { useMutation, useQuery } from 'react-query'
-import axios from 'axios'
-import { useAppDispatch, useAppSelector } from '../redux/store/hooks'
-import fetchJobs from '../utils/fetchJobs'
-import { Skeleton } from '@chakra-ui/react'
 
 const JobsPage = () => {
   const dispatch = useAppDispatch()
 
+  // USE FOR FETCHING JOBS WITH GIVEN QUERIES
+  const searchParams = useSearchParams()
+  const jobTitle = searchParams.get('job_title')
+  const city = searchParams.get('city')
+  // ========================================
+
   const { isLoading, isError, error } = useQuery({
     queryKey: ['jobs'],
     queryFn: async () => {
-      const { data } = await fetchJobs(1, 15)
+      const { data } =
+        jobTitle && city ? await fetchJobs(1, 2) : await fetchJobs(1, 15)
       dispatch(setStartupJobs(data.jobs))
     },
     refetchOnWindowFocus: false
@@ -28,7 +34,7 @@ const JobsPage = () => {
 
   return (
     <main className='py-10 mt-[84.75px]'>
-      <Container className='xl:px-40 2xl:px-60'>
+      <Container className='xl:px-40 '>
         <div className='flex flex-row mb-5'>
           <SearchInput />
         </div>
