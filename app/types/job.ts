@@ -40,9 +40,7 @@ export interface Job {
   }
   created_on: Date
   employer: {
-    uuid: string
-    avatar: null
-    co_name: string
+    coName: string
     city: string
   }
   skills: {
