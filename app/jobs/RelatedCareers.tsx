@@ -1,7 +1,10 @@
+import Courses from '../careers/guides/[slug]/Courses'
+import RelatedJobs from '../careers/guides/[slug]/RelatedJobs'
+
 const RelatedCareers = () => {
   return (
-    <div>
-      <h1>Related Careers</h1>
+    <div className='p-5'>
+      <Courses />
     </div>
   )
 }
