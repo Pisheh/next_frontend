@@ -2,6 +2,7 @@ import Image from 'next/image'
 import VerticalDivider from '../components/VerticalDivider'
 import JobSalary from './JobSalary'
 import JobPostedTime from './JobPostedTime'
+import { FiBriefcase } from 'react-icons/fi'
 
 interface JobItemInfoProps {
   jobTitle: string | undefined
@@ -28,7 +29,9 @@ const JobItemInfo: React.FC<JobItemInfoProps> = ({
 }) => {
   return (
     <div className='flex flex-row gap-4'>
-      <div className=''>{img}</div>
+      <div className='text-3xl'>
+        <FiBriefcase />
+      </div>
       <div className='flex flex-col'>
         <h2 className='mb-1.5 text-lg font-bold'>{jobTitle}</h2>
         <h4 className='mb-3 text-sm font-semibold'>
