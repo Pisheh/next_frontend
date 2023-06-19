@@ -27,7 +27,7 @@ const SingleJobDetail = ({ params }: { params: { id: string } }) => {
   }
 
   return (
-    <main className='w-screen mt-[77px]'>
+    <main className='mt-[77px] lg:mt-[84.75] xl:px-72 xl:py-10'>
       <JobDetails />
     </main>
   )
