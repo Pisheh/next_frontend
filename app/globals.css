@@ -11,3 +11,7 @@
     max-height: calc(100vh - 120px);
   }
 }
+
+.right {
+  right: calc(var(--stepper-indicator-size) / 2 - 1px);
+}
