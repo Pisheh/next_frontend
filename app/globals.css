@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+.offset {
+  margin-top: 77px;
+}
+
+.seperator {
+  height: 3px !important;
+  margin: 0 !important;
+  right: calc(var(--stepper-indicator-size) / 2 - 1px);
+}
+
+.stepper:nth-child(even)::after {
+  content: '';
+  top: 50%;
+  height: 50%;
+  width: 50px;
+  position: relative;
+  background-color: #000;
+  border-color: #000;
+  border-width: 1px 0 1px;
+}
+
 @media (min-width: 1200px) {
   .hero {
     height: calc(100vh - 84.75px);
@@ -10,8 +31,8 @@
   .job-detail {
     max-height: calc(100vh - 120px);
   }
-}
 
-.right {
-  right: calc(var(--stepper-indicator-size) / 2 - 1px);
+  .offset {
+    margin-top: 85px;
+  }
 }
