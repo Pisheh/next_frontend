@@ -1,15 +1,62 @@
 'use client'
 
+import { useEffect, useLayoutEffect, useState } from 'react'
+import { useQuery } from 'react-query'
+import { useAppDispatch } from './redux/store/hooks'
 import Link from 'next/link'
 import Card from './components/Card'
-import job from '../public/job.png'
-import career from '../public/career.png'
 import CardInfo from './components/CardInfo'
 import Button from './components/Button'
 import SearchInput from './components/SearchInput'
 import TestBanner from './careers/TestBanner'
+import job from '../public/job.png'
+import career from '../public/career.png'
+import getUser from './utils/getUser'
+import getAccessTokenFromStorage from './lib/getAccessTokenFromStorage'
+import { setIsLoggedIn, setUser } from './redux/store/userSlice'
 
 export default function Home() {
+  const [token, setToken] = useState<string>('')
+  const dispatch = useAppDispatch()
+
+  const { data, refetch } = useQuery({
+    queryKey: ['user'],
+    queryFn: async () => {
+      if (token) {
+        const res = await fetch('http://199.231.235.83:8923/me', {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        const data = res.json()
+        return data
+        // .then(res => {
+        //   if (res.ok) {
+        //     return res.json()
+        //   } else if (res.status === 401) {
+        //     throw new Error('401')
+        //   }
+        // })
+        // .then(data => data)
+        // .catch(err => console.log(err))
+      }
+    },
+    enabled: false
+  })
+
+  useEffect(() => {
+    const fetchToken = () => {
+      const t = getAccessTokenFromStorage()
+      if (t !== '') {
+        setToken(t)
+        refetch()
+      }
+    }
+
+    fetchToken()
+  }, [token])
+
   return (
     <main>
       <section className='grid items-center grid-cols-1 lg:grid-cols-2 mt-[79px] lg:mt-[84.75px] '>
@@ -47,9 +94,9 @@ export default function Home() {
           </Card>
         </section>
       </section>
-      <section className='px-8 py-10 md:p-14 lg:px-20 xl:px-24'>
+      {/* <section className='px-8 py-10 md:p-14 lg:px-20 xl:px-24'>
         <TestBanner />
-      </section>
+      </section> */}
     </main>
   )
 }
