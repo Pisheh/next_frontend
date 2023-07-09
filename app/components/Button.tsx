@@ -26,10 +26,12 @@ const Button: React.FC<ButtonProps> = ({
   onClick
 }) => {
   const classes = classNames(
-    'border-[1.5px]  hover:shadow-lg transition',
+    'border-[1.5px] hover:shadow-lg transition',
     {
       'border-primary-100 bg-primary-100 text-white hover:bg-primary-200 hover:border-primary-200 rounded-lg px-6 py-2': primary,
       'border-success-100 bg-success-100 text-white hover:bg-success-200 hover:border-success-200 rounded-lg px-6 py-2': success,
+      'border-secondary-100 bg-secondary-100 text-white hover:bg-secondary-200 hover:border-secondary-200 rounded-lg px-6 py-2': secondary,
+      'text-success-100': success && outline,
       'bg-transparent text-primary-100 border-primary-100 rounded-lg px-6 py-2': outline,
       'rounded-full': rounded
     },

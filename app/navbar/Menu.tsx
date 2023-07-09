@@ -15,10 +15,9 @@ import Button from '../components/Button'
 interface MenuProps {
   isOpen: boolean
   onClose: () => void
-  onClick: () => void
 }
 
-const Menu: React.FC<MenuProps> = ({ isOpen, onClose, onClick }) => {
+const Menu: React.FC<MenuProps> = ({ isOpen, onClose }) => {
   return (
     <Drawer isOpen={isOpen} onClose={onClose} placement='right'>
       <DrawerOverlay />
@@ -30,10 +29,6 @@ const Menu: React.FC<MenuProps> = ({ isOpen, onClose, onClick }) => {
         <DrawerBody className='flex flex-col justify-between py-5'>
           <NavLinks className='text-lg' liClass='mb-10' />
           <div className='flex flex-col gap-2'>
-            {/* Add onClose to the button below */}
-            <Button primary onClick={onClick}>
-              ورود / ثبت نام
-            </Button>
             <Button outline>بخش کارفرمایان</Button>
           </div>
         </DrawerBody>

@@ -18,7 +18,6 @@ const JobInfo = () => {
             <span>تمام وقت</span>
           </p>
         </div>
-
         <div></div>
       </div>
     </div>

@@ -15,7 +15,7 @@ const CardInfo = ({
 }) => {
   return (
     <>
-      <div className='flex items-center justify-center h-1/2'>
+      <div className='flex items-center justify-center mb-10 h-1/2'>
         <Image src={imageSrc} alt='job' height={200} />
       </div>
       <div

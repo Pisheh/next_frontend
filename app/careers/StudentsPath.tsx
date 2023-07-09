@@ -1,9 +1,10 @@
-import { FormControl, FormLabel, Radio, RadioGroup, Stack } from '@chakra-ui/react'
-import { useForm } from 'react-hook-form'
-import Container from '../components/Container'
-import SeekersInputFields from './SeekersInputFields'
-import Button from '../components/Button'
 import { useRouter } from 'next/navigation'
+import { useForm } from 'react-hook-form'
+import { FormControl, FormLabel, Radio, RadioGroup, Stack } from '@chakra-ui/react'
+import Container from '../components/Container'
+import Button from '../components/Button'
+import SeekersInputFields from './SeekersInputFields'
+import PersonalityMenu from './PersonalityMenu'
 
 const StudentsPath = () => {
   const { register, handleSubmit } = useForm()
@@ -23,10 +24,11 @@ const StudentsPath = () => {
             <FormControl>
               <FormLabel>رشته در حال تحصیل</FormLabel>
               <SeekersInputFields placeholder='رشته تحصیلی مورد نظر خود را انتخاب کنید' />
-              <FormLabel>مقطع</FormLabel>
+              <FormLabel>درآمد</FormLabel>
               <SeekersInputFields placeholder='مقطع تحصیلی خود را انتخاب کنید' />
-              <FormLabel>علایق</FormLabel>
+              <FormLabel>نوع کار</FormLabel>
               <SeekersInputFields placeholder='علایق خود را انتخاب کنید' />
+              <PersonalityMenu />
             </FormControl>
             <Button
               primary
@@ -58,6 +60,7 @@ const StudentsPath = () => {
                 </Radio>
               </Stack>
             </RadioGroup>
+            <PersonalityMenu />
 
             <Button
               primary

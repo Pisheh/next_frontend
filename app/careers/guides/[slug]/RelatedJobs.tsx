@@ -7,7 +7,7 @@ import { useQuery } from 'react-query'
 import JobItem from '@/app/jobs/JobItem'
 import { Job } from '@/app/types/job'
 
-const RelatedJobs = () => {
+const RelatedJobs = ({ amount }: { amount: number }) => {
   const [jobs, setJobs] = useState([])
 
   const router = useRouter()
@@ -16,7 +16,7 @@ const RelatedJobs = () => {
     queryKey: ['jobs'],
     queryFn: async () => {
       const jobs: any = []
-      for (let i = 1; i <= 3; i++) {
+      for (let i = 1; i <= amount; i++) {
         const { data } = await axios.get(`http://199.231.235.83:8923/jobs/${i}`)
         jobs.push(data)
       }

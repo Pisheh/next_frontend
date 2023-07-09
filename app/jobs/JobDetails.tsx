@@ -10,7 +10,7 @@ const JobDetails = () => {
   return (
     <>
       {isSelected && (
-        <div className='w-full lg:my-5 bg-[#f9f9f9] lg:rounded-2xl border shadow-sm sticky top-[100px] overflow-y-auto job-detail'>
+        <div className='lg:my-5 bg-[#f9f9f9] lg:rounded-2xl border shadow-sm sticky top-[170px] overflow-y-auto job-detail'>
           <JobDetailHeader />
           <JobDetailBody />
         </div>

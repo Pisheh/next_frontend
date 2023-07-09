@@ -9,7 +9,7 @@ const SearchInput = () => {
   const router = useRouter()
 
   const onClick = () => {
-    router.push('/jobs')
+    router.push('/jobs?job_title=engineer&city=tehran')
   }
 
   return (

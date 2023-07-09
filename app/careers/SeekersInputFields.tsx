@@ -1,33 +1,35 @@
 'use client'
 
 import { FormControl, FormLabel } from '@chakra-ui/react'
+import { useState } from 'react'
 import Select from 'react-select'
 
 interface SeekersInputFieldsProps {
-  placeholder: string
+  placeholder?: string
+  items?: {
+    branch: string
+    expertise: string[]
+  }[]
   className?: string
 }
 
 const SeekersInputFields: React.FC<SeekersInputFieldsProps> = ({
   placeholder,
+  items,
   className
 }) => {
-  const options = [
-    { value: '1', label: 'مهندسی کامپیوتر' },
-    { value: '2', label: 'پزشکی' },
-    { value: '3', label: 'مدیریت' },
-    { value: '4', label: 'علوم رایانه' },
-    { value: '5', label: 'معماری' },
-    { value: '6', label: 'روانشناسی' },
-    { value: '7', label: 'حقوق' },
-    { value: '8', label: 'شیمی' },
-    { value: '9', label: 'فیزیک' },
-    { value: '10', label: 'هنر' }
-  ]
+  const [selected, setSelected] = useState('')
+
+  const opt = items?.map(item => {
+    return { value: item.branch, label: item.branch }
+  })
+
+  const handleChange = (option: any) => setSelected(option?.value)
 
   return (
     <Select
-      options={options}
+      onChange={handleChange}
+      options={opt}
       placeholder={placeholder}
       isClearable
       className={`mb-8 ${className}`}
